@@ -51,4 +51,5 @@ Makefile
 =======
 .vagrant/
 ubuntu-bionic-18.04-cloudimg-console.log
+files/id_rsa_rammoral.pub
 >>>>>>> Stashed changes
