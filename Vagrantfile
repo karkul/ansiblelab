@@ -18,11 +18,16 @@ Vagrant.configure(2) do |config|
       v.customize ["modifyvm", :id, "--audio", "none"]
       v.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
     end
+
+    #tower.ssh.insert_key = false
+    #tower.ssh.private_key_path = ['files/id_rsa', '~/.ssh/id_rsa']
+    tower.vm.provision "file", source: "files/id_rsa.pub", destination: "~/.ssh/authorized_keys"  
     
     tower.vm.provision "shell", inline: <<-SHELL
       yum clean all
       yum makecache fast
       yum install -y git curl wget 
+      yum update -y ansible
     SHELL
   end
 
@@ -43,17 +48,8 @@ Vagrant.configure(2) do |config|
         v.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
       end
     
-      host.vm.provision "shell", inline: <<-SHELL
-        # Adding our public key to the host
-        cat files/id_rsa_rammoral.pub >> /home/vagrant/.ssh/authorized_keys
-        # Install the necessaries packages to work
-        yum clean all
-        yum makecache fast
-        yum install -y epel-release
-        yum makecache fast
-        yum install -y ansible
-      SHELL
-      
+      #host.ssh.insert_key = false    
+      host.vm.provision "file", source: "files/id_rsa.pub", destination: "~/.ssh/authorized_keys"        
     end
   end
 

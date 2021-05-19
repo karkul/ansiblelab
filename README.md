@@ -20,6 +20,8 @@ A Vagrant configuration file to setup an Ansible Tower Lab to test it.
   https://www.heidisql.com/download.php
 - Ubuntu for Windows 10 https://ubuntu.com/tutorials/ubuntu-on-windows#1-overview
 
+> You can find the complete list [here](./SOFTWARE.md)
+
 ## Setup your lab environment
 Once you have all the prerequisites covered you have to download the Vagrant configuration file from this repository:
 
