@@ -19,9 +19,10 @@ Vagrant.configure(2) do |config|
       v.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
     end
 
+    ## Adding my own SSH keys
     #tower.ssh.insert_key = false
     #tower.ssh.private_key_path = ['files/id_rsa', '~/.ssh/id_rsa']
-    tower.vm.provision "file", source: "files/id_rsa.pub", destination: "~/.ssh/authorized_keys"  
+    #tower.vm.provision "file", source: "files/id_rsa.pub", destination: "~/.ssh/authorized_keys"  
     
     tower.vm.provision "shell", inline: <<-SHELL
       yum clean all
@@ -33,7 +34,7 @@ Vagrant.configure(2) do |config|
 
   NodeCount = 1
 
-  # test host(s) 
+  # Test host(s) 
   (1..NodeCount).each do |i|
     config.vm.define "host#{i}" do |host|
       host.vm.box = "centos/7"
@@ -48,8 +49,9 @@ Vagrant.configure(2) do |config|
         v.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
       end
     
+      ## Adding my own SSH keys
       #host.ssh.insert_key = false    
-      host.vm.provision "file", source: "files/id_rsa.pub", destination: "~/.ssh/authorized_keys"        
+      #host.vm.provision "file", source: "files/id_rsa.pub", destination: "~/.ssh/authorized_keys"        
     end
   end
 
