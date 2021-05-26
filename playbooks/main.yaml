@@ -1,5 +1,6 @@
 # Playbook de demo para setear un web server
---
+---
+
 - name: Apache server setup
   hosts: web
   become: yes

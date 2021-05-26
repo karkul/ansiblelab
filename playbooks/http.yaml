@@ -1,9 +1,10 @@
 # An example about how to use Ansible for http request 
 # using the uri module
---
+---
 - name: RESTful API request using Ansible
   hosts: localhost
   connection: local
+  
   tasks:
     - name: httpbin.org API request
       uri:
@@ -13,10 +14,8 @@
         status_code: 200
         headers:
           Content-Type: "application/json"
-      result: result
+      register: result
     
     - name: print result
       debug:
         var: result.json
-
-    - name: no actions
