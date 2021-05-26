@@ -18,3 +18,5 @@
     - name: print result
       debug:
         var: result.json
+
+    - name: no actions
