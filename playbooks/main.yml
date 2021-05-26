@@ -2,7 +2,13 @@
 --
 - name: Apache server setup
   hosts: web
+  become: yes
+  become_method: sudo
+  
   tasks:
+    - name: Adding user
+      command: useradd developer
+
     - name: Install Apache
       yum:
         name: "httpd"
