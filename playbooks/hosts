@@ -1,0 +1,15 @@
+tower.tslab.mx tower ansible_host=172.16.8.10
+host1.tslab.mx host1 ansible_host=172.16.8.101
+host2.tslab.mx host2 ansible_host=172.16.8.102
+
+[web]
+host1
+
+[db]
+host2
+
+[win]
+
+[app:child]
+web
+db

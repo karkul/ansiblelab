@@ -1,0 +1,16 @@
+# Playbook de demo para setear un web server
+--
+- name: Apache server setup
+  hosts: web
+  tasks:
+    - name: Install Apache
+      yum:
+        name: "httpd"
+        state: present
+        update_cache: yes
+    
+    - name: Start Apache
+      service:
+        name: "httpd"
+        state: started
+
