@@ -5,7 +5,6 @@
 Nuestro primer reto consiste en: realizar un **healt check** de forma remota en el sistema *host1* (de nuestro laboratorio) y publicarlo en sitio web que expone el mismo http://localhost/health-checks/.   
 
 > Considero que es posible completar este reto utilizando lo aprendido durante los entrenamientos pasados y apoyandose con algún material públicado en Internet =)    
-   
 
 #### Diagrama del Laboratorio
 ![Dojo (Lab)](files/Dojo.png)
@@ -29,7 +28,9 @@ Para lograr completar este reto deberán:
     - Envie el archivo de salida (o lo copie) a la carpeta /var/www/html/health-checks (previa creación del directorio).
     - Y por ultimo **envié una notificación a través del Bot de Slack al canal #general** para saber quienes lo han podido completar.
 
-El primer Ninja que lo logre será acredor a que su código sea promovido al branch Master y sea reconocido como *Ninja Chunin (L2)*. Así mismo, se le darán puntos extra a aquel que le ponga un *plus* a este reto.
+> Herramientas a utilizar: #ansible #linux #vagrant #git #vim #vc 
+
+El primer Ninja que lo logre será acredor a que su código sea promovido al branch Master y sea reconocido como *Ninja Chunin (L2)*. Así mismo, se le darán puntos extra a aquel que le ponga un *plus* a este reto y/o ayude a *corregir* cualquier posible detalle en este playbook o en el de alguno de los otros participantes.
     
 > A lo largo del tiempo iré publicando algunos *hints* en nuestro canal de slack para orientar el camino a seguir.
 
