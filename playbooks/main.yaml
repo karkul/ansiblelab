@@ -8,7 +8,11 @@
   
   tasks:
     - name: Adding user
-      command: useradd developer
+      user:
+        name: developer
+        group: wheel
+        shell: /bin/bash          
+      register: user_result
 
     - name: Install Apache
       yum:
