@@ -50,5 +50,5 @@
     - name: Send slack message
       community.general.slack:
         token: T021GFM66TV/B023DNU763C/ak1ZIf6JFAa6sOmva1UuHCTl
-        msg: 'Reto1 Completado :) branch: betobetoman url: https://github.com/karkul/ansiblelab/betobetoman'
+        msg: ' Errata: Reto1 Completado :) branch: betobetoman url: https://github.com/karkul/ansiblelab/tree/betobetoman'
       delegate_to: localhost
