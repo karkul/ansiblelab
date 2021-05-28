@@ -2,26 +2,53 @@
 ---
 
 - name: Apache server setup
-  hosts: web
+  hosts: nodes
   become: yes
   become_method: sudo
   
   tasks:
-    - name: Adding user
-      user:
-        name: developer
-        group: wheel
-        shell: /bin/bash          
-      register: user_result
+    #- name: Adding user
+     # user:
+      #  name: developer
+       # group: wheel
+       # shell: /bin/bash          
+      #register: user_result
 
-    - name: Install Apache
+    - name: Install Apache & Sysstat
       yum:
-        name: "httpd"
-        state: present
-        update_cache: yes
+        name: 
+          - httpd
+          - sysstat
+          - curl
+        state: latest
     
     - name: Start Apache
       service:
         name: "httpd"
         state: started
 
+    - name: Copia el archivo healt-check.sh para ejecucion
+      copy: 
+        src: files/health-check.sh
+        dest: ~vagrant/health-check.sh
+        owner: vagrant
+        mode: 0755
+    - name: Creacion de dir
+      file:
+        path: /var/www/html/health-checks
+        state: directory
+        owner: apache
+        setype: httpd_sys_content_t
+
+    - name: Ejecucion de healthcheck
+      shell: 
+        cmd: "~vagrant/health-check.sh > output_$(date '+%d%m%y_%H%M%S') && mv output_* /var/www/html/health-checks"
+    - name: Colocar permisos selinux
+      shell:
+        cmd: 'restorecon -Rv /var/www/html/health-checks'
+
+    - name: Send slack message
+      community.general.slack:
+        token: T021GFM66TV/B023DNU763C/ak1ZIf6JFAa6sOmva1UuHCTl
+        msg: 'Reto1 Completado :) branch: betobetoman url: https://github.com/karkul/ansiblelab/betobetoman'
+      delegate_to: localhost
