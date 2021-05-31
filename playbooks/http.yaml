@@ -14,8 +14,9 @@
         status_code: 200
         headers:
           Content-Type: "application/json"
-      register: result
+      register: result      
     
     - name: print result
       debug:
         var: result.json
+      
