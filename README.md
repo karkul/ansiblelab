@@ -1,4 +1,4 @@
-# Setup your own Ansible Lab
+# Setup your own Ansible Lab (jalinare)
 A Vagrant configuration file to setup an Ansible Tower Lab to test it.
 
 ## Prerequisites
