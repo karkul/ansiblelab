@@ -1,0 +1,35 @@
+# Playbook: Reto 01
+---
+
+- name: Prepare servers
+  hosts: web
+  become: yes
+  become_method: sudo
+  
+  tasks:
+
+    - name: Create scripts directory
+      file:
+        path: /home/vagrant/scripts
+        state: directory
+        mode: '0755'
+
+    - name: Create health-check directory
+      file:
+        path: /var/www/html/health-checks
+        state: directory
+        mode: '0755'
+    
+   - name: Copy health-check.sh file to server
+      copy:
+	src: /home/vagrant/files/health-check.sh
+	dest: /home/vagrant/scripts/health-check.sh
+	owner: vagrant
+	group: vagrant
+	mode: u+rwx,g-wx,o-rwx
+
+    - name: Modify health-check script permissions
+      file:
+        path: /home/vagrant/scripts/health-check.sh
+        mode: '0550'
+
