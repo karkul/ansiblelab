@@ -4,11 +4,23 @@
 ENV['VAGRANT_NO_PARALLEL'] = 'yes'
 
 Vagrant.configure(2) do |config|
+<<<<<<< HEAD
+=======
+  #config.hostmanager.enabled = true
+  #config.hostmanager.manage_host = true
+  #config.hostmanager.manage_guest = true
+  #config.hostmanager.ignore_private_ip = false
+  #config.hostmanager.include_offline = true
+>>>>>>> 8013b128110e6be92703747deca56af4562d2ecb
   # Ansible toolkit
   config.vm.define "tower" do |tower|
     tower.vm.box = "scorputty/centos-awx"
     tower.vm.hostname = "tower.tslab.mx"
     tower.vm.network "private_network", ip: "172.16.8.10"
+<<<<<<< HEAD
+=======
+    #tower.hostmanager.aliases = %w(tower.tslab.mx tower)
+>>>>>>> 8013b128110e6be92703747deca56af4562d2ecb
     tower.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
     tower.vm.network "forwarded_port", guest: 3000, host: 3000, host_ip: "127.0.0.1"
     tower.vm.network "forwarded_port", guest: 2200, host: 2202, host_ip: "127.0.0.1"
@@ -42,7 +54,7 @@ Vagrant.configure(2) do |config|
       host.vm.box = "centos/7"
       host.vm.hostname = "host#{i}.tslab.mx"
       host.vm.network "private_network", ip: "172.16.8.10#{i}"
-      host.hostmanager.aliases = %w("host#{i}.tslab.mx" "host#{i}")
+      #host.hostmanager.aliases = %w("host#{i}.tslab.mx" "host#{i}")
       host.vm.provider "virtualbox" do |v|
         v.name = "host#{i}"
         v.memory = 1024
