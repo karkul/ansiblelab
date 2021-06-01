@@ -24,4 +24,12 @@
       service:
         name: "httpd"
         state: started
+      notify: service_started
+  
+  handlers:
+    - name: service_started
+      slack:
+        token: T021GFM66TV/B023DNU763C/ak1ZIf6JFAa6sOmva1UuHCTl
+        msg: 'testing handlers'
+      delegate_to: localhost
 
