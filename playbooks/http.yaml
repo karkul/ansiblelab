@@ -4,6 +4,7 @@
 - name: RESTful API request using Ansible
   hosts: localhost
   connection: local
+  gather_facts: no
   
   tasks:
     - name: httpbin.org API request
