@@ -37,6 +37,18 @@ Then run `vagrant up` wait... and *¡Voila!* you have your own Ansible Tower lab
 
 > Note: if you want to add more hosts to test you must change the value of the `NodeCount` variable in the `Vagrantfile` and run `vagrant reload` from your terminal to add the new nodes.
 
+You can get access to the new boxes created by Vagrant running the command:
+
+ ``vagrant ssh <BOX_NAME>``
+
+In the case that you want to get access to those boxes directly through the Virtualbox console interface, you can use the follow credentials.
+
+```
+Username: vagrant 
+Password: vagrant
+```
+
+
 For more information about how to adjust the `Vagrantfile` please refer to [here](https://www.vagrantup.com/docs/vagrantfile)
 
 At least please join us in our **Slack** [#automation2021](https://join.slack.com/t/automation2021/shared_invite/zt-pz48bp9j-9g7UYbVUlc82E4SKyAO2MQ) channel and be part of our community!
