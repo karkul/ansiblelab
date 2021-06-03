@@ -19,7 +19,7 @@
     
     - name: Start Apache
       service:
-        name: "httpd"
+        name: '{{ package_name }}'
         state: started      
       when: ('{{ start_service }}' == "t")
       notify: service_started
