@@ -7,32 +7,27 @@
   become_method: sudo
   
   tasks:
-    # - name: Adding user
-    #   user:
-    #     name: developer
-    #     group: wheel
-    #     shell: /bin/bash          
-    #   register: user_result
     - name: Print extrariables values
       debug:
         var: package_name
 
     - name: Install Apache
       yum:
-        name: "httpd"
+        name: {{ package_name }}
         state: present
         update_cache: yes
     
     - name: Start Apache
       service:
         name: "httpd"
-        state: started
-      #notify: service_started
+        state: started      
+      when: {{ start_service }} == 't'
+      notify: service_started
   
-  # handlers:
-  #   - name: service_started
-  #     slack:
-  #       token: T021GFM66TV/B023VRWH4PN/5k5Vxw3QyH8EyS77EohfeEG1
-  #       msg: 'testing handlers'
-  #     delegate_to: localhost
+  handlers:
+    - name: service_started
+      slack:
+        token: T021GFM66TV/B023VRWH4PN/5k5Vxw3QyH8EyS77EohfeEG1
+        msg: 'testing handlers'
+      delegate_to: localhost
 
