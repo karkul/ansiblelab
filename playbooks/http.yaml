@@ -4,6 +4,7 @@
 - name: RESTful API request using Ansible
   hosts: localhost
   connection: local
+  gather_facts: yes
   
   tasks:
     - name: httpbin.org API request
@@ -11,7 +12,7 @@
         url: http://httpbin.org/ip
         method: GET
         return_content: yes
-        status_code: 200
+        status_code: 400
         headers:
           Content-Type: "application/json"
       register: result      
