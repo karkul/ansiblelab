@@ -48,6 +48,7 @@ Las tareas a realizar a través del playbook son:
 - Ejecutar el comando `diskusage.exe` de forma remota en la máquina *whost01*.
 - Copiar el archivo resultado llamado `diskusage_out.txt` de regreso a la máquina *tower*
 - Enviar el archivo `diskusage_out.txt` por correo electrónico a la cuenta [ramon.morales-lopez@t-systems.com](mailto:ramon.morales-lopez@t-systems.com)
+> Para este punto les recomiendo utilizar alguna cuenta de [Gmail como SMTP Sever](https://support.google.com/a/answer/176600?hl=es) para poder enviar correos desde su máquina local.
 - Enviar una notificación de la ejecución del playbook de forma exitos a Slack en el canal #general
 > Para este punto se recomienda utilizar el canal de #thcp-integration para las pruebas durante la etapa de desarrollo para no generar ruido en el canal principal, de acuerdo?
 
