@@ -1,0 +1,11 @@
+---
+# Ansible connection
+ansible_user: vagrant
+ansible_password: vagrant
+ansible_connection: winrm
+ansible_port: 5986
+ansible_winrm_transport: basic
+ansible_winrm_server_cert_validation: ignore
+
+# if the target VM guest is Windows set the 'ansible_shell_type' to 'powershell'
+ansible_shell_type: powershell

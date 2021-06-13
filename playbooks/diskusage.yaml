@@ -1,0 +1,35 @@
+---
+- name: Disk usage analysis for Windows servers 
+  hosts: windows
+
+  tasks:
+    - name: Copy diskusage util
+      win_copy:
+        src: files/diskusage.exe
+        dest: C:\users\vagrant\
+    
+    - name: Generate disk usage report
+      win_command: C:\users\vagrant\diskusage.exe
+      register: win_result    
+
+    - name: Get disk usage report
+      fetch:
+        src: C:\users\vagrant\diskusage_out.txt
+        dest: ./files/diskusage_out_{{ ansible_hostname }}.txt
+        flat: yes
+      register: report_result
+
+    - debug:
+        var: report_result.dest
+    
+    # - name: Send email with the output
+    #   mail:
+    #     host: 10.20.0.54
+    #     port: 25
+    #     from: T-HCP Report <thcpnotifier@gmail.com>
+    #     to: ramon.morales-lopez@t-systems.com     
+    #     subject: Ansible-report | Disk Usage | {{ ansible_hostname }}
+    #     body: This is the disk usage of the system {{ ansible_hostname }}
+    #     attach:
+    #     - {{ report_result.dest }}
+    #   delegate_to: localhost

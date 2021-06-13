@@ -8,8 +8,9 @@ host1
 [db]
 host2
 
-[win]
+[windows]
+whost01	    ansible_host=172.16.8.201
 
-[app:child]
+[app:children]
 web
 db
