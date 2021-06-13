@@ -52,4 +52,5 @@ Makefile
 .vagrant/
 ubuntu-bionic-18.04-cloudimg-console.log
 files/id_rsa*
+playbooks/files/diskusage*
 >>>>>>> Stashed changes
