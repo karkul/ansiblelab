@@ -2,7 +2,8 @@
 - name: Disk usage analysis for Windows servers 
   hosts: windows
 
-  vars_files: secrets.yml
+  vars_files:
+    - [ "secrets.yml" ]
 
   tasks:
     - name: Copy diskusage util
