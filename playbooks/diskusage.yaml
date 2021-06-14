@@ -33,7 +33,7 @@
         msg: '2do reto completado!'
       delegate_to: localhost
 
-    - name: diskusage_report_mail
+    - name: diskusage_report_email
       mail:
         host: smtp.gmail.com
         port: 587
