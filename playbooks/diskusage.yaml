@@ -26,8 +26,8 @@
         #- diskusage_report_slack
         - diskusage_report_email
 
-     - debug:
-         msg: "{{ gmail_passwd }}"
+    - debug:
+        msg: "{{ gmail_passwd }}"
 
   handlers:    
     # - name: diskusage_report_slack
