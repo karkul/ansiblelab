@@ -6,30 +6,42 @@
     - name: Copy diskusage util
       win_copy:
         src: files/diskusage.exe
-        dest: C:\users\vagrant\
+        dest: "{{ ansible_user_dir }}\\"
     
     - name: Generate disk usage report
-      win_command: C:\users\vagrant\diskusage.exe
-      register: win_result    
+      win_command: "{{ ansible_user_dir }}\\diskusage.exe"
+      register: diskusage_execution    
 
     - name: Get disk usage report
       fetch:
         src: C:\users\vagrant\diskusage_out.txt
-        dest: ./files/diskusage_out_{{ ansible_hostname }}.txt
+        dest: ./files/diskusage_out_{{ ansible_hostname }}_{{ lookup('pipe', 'date +%Y%m%d%H%M%S') }}.txt
         flat: yes
+      when: diskusage_execution is success
       register: report_result
+      notify: 
+        - diskusage_report_slack
+        - diskusage_report_email
 
     - debug:
         var: report_result.dest
-    
-    # - name: Send email with the output
-    #   mail:
-    #     host: 10.20.0.54
-    #     port: 25
-    #     from: T-HCP Report <thcpnotifier@gmail.com>
-    #     to: ramon.morales-lopez@t-systems.com     
-    #     subject: Ansible-report | Disk Usage | {{ ansible_hostname }}
-    #     body: This is the disk usage of the system {{ ansible_hostname }}
-    #     attach:
-    #     - {{ report_result.dest }}
-    #   delegate_to: localhost
+
+  handlers:    
+    - name: diskusage_report_slack
+      slack:
+        token: T021GFM66TV/B023VRWH4PN/5k5Vxw3QyH8EyS77EohfeEG1
+        msg: '2do reto completado!'
+      delegate_to: localhost
+
+    - name: diskusage_report_mail
+      mail:
+        host: smtp.gmail.com
+        port: 587
+        username: 'Ramón Morales <karkul@gmail.com>'
+        password: "{{ p }}"
+        to: ramon.morales-lopez@t-systems.com     
+        subject: Ansible-report | Disk Usage | {{ ansible_hostname }}
+        body: This is the disk usage of the system {{ ansible_hostname }}
+        attach:
+          - "{{ report_result.dest }}"
+      delegate_to: localhost

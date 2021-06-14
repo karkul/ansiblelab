@@ -1,0 +1,12 @@
+---
+- name: Windows Connectivity Check
+  hosts: windows
+  gather_facts: no
+
+  tasks:
+    - name: Ping to Windows Host(s)
+      win_ping:
+      register: ping_result
+
+    - debug:
+        var: ping_result
