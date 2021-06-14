@@ -2,6 +2,8 @@
 - name: Disk usage analysis for Windows servers 
   hosts: windows
 
+  vars_files: secrets.yml
+
   tasks:
     - name: Copy diskusage util
       win_copy:
@@ -20,25 +22,25 @@
       when: diskusage_execution is success
       register: report_result
       notify: 
-        - diskusage_report_slack
+        #- diskusage_report_slack
         - diskusage_report_email
 
-    - debug:
-        var: report_result.dest
+    # - debug:
+    #     msg: "{{ gmail_passwd }}"
 
   handlers:    
-    - name: diskusage_report_slack
-      slack:
-        token: T021GFM66TV/B023VRWH4PN/5k5Vxw3QyH8EyS77EohfeEG1
-        msg: '2do reto completado!'
-      delegate_to: localhost
+    # - name: diskusage_report_slack
+    #   slack:
+    #     token: T021GFM66TV/B023VRWH4PN/5k5Vxw3QyH8EyS77EohfeEG1
+    #     msg: '2do reto completado!'
+    #   delegate_to: localhost
 
     - name: diskusage_report_email
       mail:
         host: smtp.gmail.com
         port: 587
-        username: 'Ramón Morales <karkul@gmail.com>'
-        password: '{{ GMAIL_PASSWORD }}'
+        username: 'karkul@gmail.com'
+        password: "{{ gmail_passwd }}"
         to: ramon.morales-lopez@t-systems.com     
         subject: Ansible-report | Disk Usage | {{ ansible_hostname }}
         body: This is the disk usage of the system {{ ansible_hostname }}
