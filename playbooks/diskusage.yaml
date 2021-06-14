@@ -38,7 +38,7 @@
         host: smtp.gmail.com
         port: 587
         username: 'Ramón Morales <karkul@gmail.com>'
-        password: "{{ PASSWORD }}"
+        password: "{{ gmail_password }}"
         to: ramon.morales-lopez@t-systems.com     
         subject: Ansible-report | Disk Usage | {{ ansible_hostname }}
         body: This is the disk usage of the system {{ ansible_hostname }}
