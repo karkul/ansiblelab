@@ -23,7 +23,7 @@
       when: diskusage_execution is success
       register: report_result
       notify: 
-        #- diskusage_report_slack
+        - diskusage_report_slack
         - diskusage_report_email
 
     - debug:
