@@ -1,0 +1,16 @@
+tower ansible_host=172.16.8.10
+host1 ansible_host=172.16.8.101
+host2 ansible_host=172.16.8.102
+
+[web]
+host1
+
+[db]
+host2
+
+[windows]
+whost01	    ansible_host=172.16.8.201
+
+[app:children]
+web
+db
