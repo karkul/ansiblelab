@@ -3,7 +3,7 @@
   hosts: windows
 
   vars_files:
-    - [ "secrets.yml" ]
+    - [ "secrets.yml" ]                                   # Secrets file contain slack token and gmail password 
 
   tasks:
     - name: Create configuration file
@@ -37,10 +37,10 @@
         flat: yes
       when: diskusage_execution is success
       register: report_result
-      notify: 
-        #- diskusage_report_slack
+      notify:         
         - diskusage_report_email
-
+        - diskusage_report_slack
+        
     # - debug:
     #     msg: "{{ gmail_passwd }}"
 
