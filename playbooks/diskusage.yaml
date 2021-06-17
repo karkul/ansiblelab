@@ -9,7 +9,7 @@
     - name: Create configuration file
       template:
         src: templates/diskusage_config.j2
-        dest: files/diskusage_config.yaml
+        dest: /tmp/diskusage_config.yaml
       when: diskusage_customfile == 't'
       notify: diskusage_configfile_creation
       delegate_to: localhost
@@ -38,10 +38,10 @@
     #     msg: "{{ gmail_passwd }}"
 
   handlers: 
-    # - name: diskusage_configfile_creation
-    #   win_copy:
-    #     src: /tmp/diskusage_config.yaml
-    #     dest: "{{ ansible_user_dir }}\\"
+    - name: diskusage_configfile_creation
+      win_copy:
+        src: /tmp/diskusage_config.yaml
+        dest: "{{ ansible_user_dir }}\\"
 
     - name: diskusage_report_slack
       slack:
