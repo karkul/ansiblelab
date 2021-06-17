@@ -54,7 +54,7 @@
         port: 587
         username: 'karkul@gmail.com'
         password: '{{ gmail_passwd }}'
-        to: ramon.morales-lopez@t-systems.com     
+        to: '{{ mail_to }}'
         subject: Ansible-report | Disk Usage | {{ ansible_hostname }}
         body: This is the disk usage of the system {{ ansible_hostname }}
         attach:
