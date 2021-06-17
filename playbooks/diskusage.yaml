@@ -10,7 +10,6 @@
       template:
         src: templates/diskusage_config.j2
         dest: /tmp/diskusage_config.yaml
-      force: yes
       register: diskusage_configfile_creation
       when: diskusage_customfile == 't'                   # using a flag to control if we want to execute it or not.
       notify: diskusage_configfile_creation_handler
