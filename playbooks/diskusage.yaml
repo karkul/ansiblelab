@@ -10,9 +10,16 @@
       template:
         src: templates/diskusage_config.j2
         dest: /tmp/diskusage_config.yaml
-      when: diskusage_customfile == 't'
+      register: diskusage_configfile_creation
+      when: diskusage_customfile == 't'                   # using a flag to control if we want to execute it or not.
       notify: diskusage_configfile_creation
-      delegate_to: localhost
+      delegate_to: localhost                              # to change context to local instead of remote.
+
+    - name: Copy diskusage config file to target host     # this task is execute when the previous one was done as well
+      win_copy:
+        src: /tmp/diskusage_config.yaml
+        dest: "{{ ansible_user_dir }}\\"
+      when: diskusage_configfile_creation.changed
 
     - name: Copy diskusage binary
       win_copy:
@@ -37,12 +44,7 @@
     # - debug:
     #     msg: "{{ gmail_passwd }}"
 
-  handlers: 
-    - name: diskusage_configfile_creation
-      win_copy:
-        src: /tmp/diskusage_config.yaml
-        dest: "{{ ansible_user_dir }}\\"
-
+  handlers:     
     - name: diskusage_report_slack
       slack:
         token: '{{ slack_token }}'
