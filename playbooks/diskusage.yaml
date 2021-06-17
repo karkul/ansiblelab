@@ -6,7 +6,14 @@
     - [ "secrets.yml" ]
 
   tasks:
-    - name: Copy diskusage util
+    - name: Create configuration file
+      template:
+        src: templates/diskusage_config.j2
+        dest: /tmp/diskusage_config.yaml
+      when: diskusage_customfile == 't'
+      notify: diskusage_configfile_creation
+
+    - name: Copy diskusage binary
       win_copy:
         src: files/diskusage.exe
         dest: "{{ ansible_user_dir }}\\"
@@ -26,10 +33,15 @@
         - diskusage_report_slack
         - diskusage_report_email
 
-    - debug:
-        msg: "{{ gmail_passwd }}"
+    # - debug:
+    #     msg: "{{ gmail_passwd }}"
 
-  handlers:    
+  handlers: 
+    # - name: diskusage_configfile_creation
+    #   win_copy:
+    #     src: /tmp/diskusage_config.yaml
+    #     dest: "{{ ansible_user_dir }}\\"
+
     - name: diskusage_report_slack
       slack:
         token: '{{ slack_token }}'
