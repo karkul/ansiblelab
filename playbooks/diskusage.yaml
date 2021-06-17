@@ -9,7 +9,7 @@
     - name: Create configuration file
       template:
         src: templates/diskusage_config.j2
-        dest: /tmp/diskusage_config.yaml
+        dest: files/diskusage_config.yaml
       when: diskusage_customfile == 't'
       notify: diskusage_configfile_creation
 
