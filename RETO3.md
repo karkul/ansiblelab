@@ -14,6 +14,8 @@ El reto tiene como objetivo fortalecer los conocimientos adquiridos durante el e
 
 Así también se busca que el equipo de DevOps de la inicitativa Automatoin2021 se familiarice con el ambiente de desarrollo del Laboratorio donde se encuentran instalados los Componentes Core del T-HCP
 
+![TSMXLab](files/tslab.png)
+
 ## Detalles Técnicos
 Para poder llevar a cabo este reto deberás tomar en cuenta lo siguiente:
 1. Generar un token temporal para poder interactuar con el [API de PHPIPAM](https://phpipam.net/api/api_documentation)  
@@ -29,8 +31,7 @@ Para poder llevar a cabo este reto deberás tomar en cuenta lo siguiente:
    - Generar un reporte en formato HTML con los datos obtenidos.
 4. Enviar un correo electronico al correo del solicitante con el reporte HTML adjunto.
 
-> Todo lo anterior deberá llevarse acabo en el Ambiente de Desarrollo (TSMXLab) donde se encuentran instalados todos los componentes requeridos del T-HCP.
-![TSMXLab](files/tslab.png)
+> TIP: Para esta práctica se recomienda repartir las tareas entre los miembros del *squad* donde por ejemplo alguien se encargue del diseño de las interfaces, otro de la definición de objetos en Ansible Tower, y el resto en la codificación dividiendo lo lógica en bloques separados que cada quien pueda trabajar sin generar dependencias.
 
 ### Componentes Code del T-HCP a utilizar
 - CloudForms: https://thcp.ts-lab.mx
@@ -47,5 +48,10 @@ Para poder llevar a cabo este reto deberás tomar en cuenta lo siguiente:
 - [Sitio oficial de PHPIPAM](https://www.phpipam.net)
 - [Documentación API PHPIPAM](https://phpipam.net/api/api_documentation/)
 - [A simple HTTP Request & Response Service](http://httpbin.org/)
+- [Ansible uri module](https://docs.ansible.com/ansible/2.3/uri_module.html)
+
+> Todo lo anterior deberá llevarse acabo en el Ambiente de Desarrollo (TSMXLab) donde se encuentran instalados todos los componentes requeridos del T-HCP.
+
+### Recuerda que no hay porque limitarse a lo aquí escrito, se creativo usa todos los recursos que esten a tu alcance y supera este reto con tus habilidades!
 
 ## ¡¡Buena Suerte!! :
