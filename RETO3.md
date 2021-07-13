@@ -12,9 +12,11 @@ El reporte deberá ser enviado via correo electronico al destinatario que se hay
 
 El reto tiene como objetivo fortalecer los conocimientos adquiridos durante el entrenamiento, así como, ayudar a comprender el proceso de integracion y consulta de APIs mediante llamadas de tipo RESTful API desde Ansible. También se busca que el desarrollador se familiarice con el pase de variables desde CloudForms / ManageIQ hacia Ansible Tower mediante el uso de dialogos y la integración entre ambos componentes.
 
-Así también se busca que el equipo de DevOps de la inicitativa Automatoin2021 se familiarice con el ambiente de desarrollo del Laboratorio donde se encuentran instalados los Componentes Core del T-HCP
+Así también, se busca que el equipo de DevOps de la inicitativa Automatoin2021 se familiarice con el ambiente de desarrollo del Laboratorio donde se encuentran instalados los Componentes Core del T-HCP
 
 ![TSMXLab](files/tslab.png)
+
+> Todo lo anterior deberá llevarse acabo en el Ambiente de Desarrollo (TSMXLab) donde se encuentran instalados todos los componentes requeridos del T-HCP.
 
 ## Detalles Técnicos
 Para poder llevar a cabo este reto deberás tomar en cuenta lo siguiente:
@@ -50,8 +52,7 @@ Para poder llevar a cabo este reto deberás tomar en cuenta lo siguiente:
 - [A simple HTTP Request & Response Service](http://httpbin.org/)
 - [Ansible uri module](https://docs.ansible.com/ansible/2.3/uri_module.html)
 
-> Todo lo anterior deberá llevarse acabo en el Ambiente de Desarrollo (TSMXLab) donde se encuentran instalados todos los componentes requeridos del T-HCP.
 
 ### Recuerda que no hay porque limitarse a lo aquí escrito, se creativo usa todos los recursos que esten a tu alcance y supera este reto con tus habilidades!
 
-## ¡¡Buena Suerte!! :
+## ¡Happy Hacking! :wink:
