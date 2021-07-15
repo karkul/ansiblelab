@@ -23,7 +23,7 @@ Para poder llevar a cabo este reto deberás tomar en cuenta lo siguiente:
 1. Generar un token temporal para poder interactuar con el [API de PHPIPAM](https://phpipam.net/api/api_documentation)  
 
    - Usted debera usar las credenciales: *ansible/Automation2021* para poder generar el token temporal.
-   - El App ID para este caso es: *automation*
+   - El App ID para este caso es: *thcp*
 
 > Para entender mejor el proceso de generación de tokens en el PHPIPAM referirse a la [Documentación oficial del proyecto](https://phpipam.net/api/api_documentation).
 
@@ -36,12 +36,18 @@ Para poder llevar a cabo este reto deberás tomar en cuenta lo siguiente:
 > TIP: Para esta práctica se recomienda repartir las tareas entre los miembros del *squad* donde por ejemplo alguien se encargue del diseño de las interfaces, otro de la definición de objetos en Ansible Tower, y el resto en la codificación dividiendo lo lógica en bloques separados que cada quien pueda trabajar sin generar dependencias.
 
 ### Componentes Code del T-HCP a utilizar
-- CloudForms: https://thcp.ts-lab.mx
-- Ansible Tower:  https://tower.ts-lab.mx
-- Gitlab: https://git.ts-lab.mx
+- CloudForms: https://thcp.tslab.mx
+- Ansible Tower:  https://tower.tslab.mx
+- Gitlab: https://git.tslab.mx
 
 ### Instancia de pruebas de **PHPIPAM**
-- PHPIPAM https://ipam.ts-lab.mx
+- PHPIPAM URL Base
+
+    https://ipam.tslab.mx/phpipam/
+- PHPIPAM API
+
+    https://ipam.tslab.mx/phpipam/api/
+
 
 ### Software de referencia
 - [Postman - API Client](https://www.postman.com/downloads/)
