@@ -11,7 +11,7 @@
 - Copiar el ejecutable del programa **Diskusage**
 - Ejecutar el programa `diskusage.exe`
 - Copiar el archivo de salida `diskusage_out.txt` del whost1 de vuelta a Tower
-- Enviar el reporte/archivo de salida al correo `ramon.morales-lopez@t-system.com` 
+- Enviar el reporte/archivo de salida al correo `ramon.morales-lopez@t-systems.com` 
 
 4. Enviar una notificacion a Slack donde se diga que el reto ha sido completado.
 
